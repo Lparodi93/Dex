@@ -1,1 +1,10 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+button {
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+}
+
+body {
+  font-size: 20px;
+}
+/*# sourceMappingURL=style.css.map */

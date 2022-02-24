@@ -58,8 +58,10 @@ function pokeBusqueda() {
             body.appendChild(list);
         }
 
+        reinicio();
+
     } else {
-        alert("El dato no es válido")
+        alert("El dato no es válido");
         init();
     }
 }
@@ -71,10 +73,23 @@ function dataPoke() {
         const description = document.createElement("p");
         description.innerHTML = miPoke.name + "<br>" + "El pokemón tipo" + " " + miPoke.type + ":" + " " + miPoke.desc + ".";
         body.appendChild(description);
+        reinicio();
+
     }
     else {
         miPoke = null;
         pokeBusqueda();
     }
+}
 
+function reinicio() {
+    const body = document.body;
+    const boton = document.createElement("button")
+    boton.innerHTML = "Reiniciar";
+    body.appendChild(boton);
+
+    boton.onclick = function () {
+        body.innerHTML = "";
+        init();
+    }
 }
