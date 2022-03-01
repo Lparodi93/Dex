@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#buscar {
+    width: 20%;
+    border-radius: 5px;
+    box-shadow: 2px 1px 20px 1px red;
+    display: flex;
+    padding: 8px;
+}
+
+.reset {
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#tittle {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+#tittle h1 {
+    color: yellow;
+    font-size: 50px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#tittle2 {
+    display: flex;
+    justify-content: center;
+}
+
+#tittle2 h2 {
+    color: yellow;
+    font-size: 20px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+
+
+.pokeball {
+    padding: 40px;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    font-family: 'Press Start 2P', cursive;
+    line-height: 2;
+}

@@ -1,11 +1,7 @@
-let selector = 0;
-let poke;
-let inPoke;
-let pokeName;
 let miPoke;
 
 const kanto = [
-    { id: "1", name: "BULBASAUR", type: "Planta/Veneno", desc: "Este pokemon nace con una semilla en el lomo que crece con el paso del tiempo" },
+    { id: "1", name: "BULBASAUR", type: "Planta/Veneno", desc: "Este pokemon nace con una semilla en el lomo que crece con el paso del tiempo"},
     { id: "2", name: "IVYSAUR", type: "Planta/Veneno", desc: "Cuando le crece bastante el bulbo del lomo, pierde la capacidad de erguirse sobre las patas traseras" },
     { id: "3", name: "VENASAUR", type: "Planta/Veneno", desc: "La planta florece cuando absorbe energía solar, lo cual le obliga a buscar siempre la luz del sol" },
     { id: "4", name: "CHARMANDER", type: "Fuego", desc: "Prefiere las cosas calientes. Dicen que cuando llueve le sale vapor de la punta de la cola" },
@@ -16,80 +12,49 @@ const kanto = [
     { id: "9", name: "BLASTOISE", type: "Agua", desc: "Para acabar con su enemigo, lo aplasta con el peso de su cuerpo. En momentos de apuro, se esconde en el caparazón" },
     { id: "10", name: "CATERPIE", type: "Bicho", desc: "Para protegerse, despide un hedor horrible por las antenas con el que repele a sus enemigos" },
     { id: "11", name: "METAPOD", type: "Bicho", desc: "Como en este estado solo puede endurecer su coraza, permanece inmóvil a la espera de evolucionar" },
-    { id: "12", name: "BUTTERFLY", type: "Bicho", desc: "Aletea a gran velocidad para lanzar al aire sus escamas extremadamente tóxicas" }
+    { id: "12", name: "BUTTERFLY", type: "Bicho", desc: "Aletea a gran velocidad para lanzar al aire sus escamas extremadamente tóxicas" },
+    { id: "25", name: "PIKACHU", type: "Eléctrico", desc: "Cuanto más potente es la energía eléctrica que genera este Pokémon, más suaves y elásticas se vuelven las bolsas de sus mejillas" }
 ];
 
-alert("Bienvenidos a la Pokedex");
+
 init();
 
-//----------------------------------------------FUNCIONES---------------------------------------------->
-function init() {
-    selector = parseInt(prompt("ingrese 1 para buscar Pokémon por nombre o 2 para buscar por número. 3 para ver referencia"));
-    pokeBusqueda();
-}
-
-function pokeBusqueda() {
-    if (selector === 1) {
-        do {
-            inPoke = prompt("Ingresa nombre de Pokémon");
-            miPoke = kanto.find(item => item.name.toLocaleUpperCase() === inPoke.toLocaleUpperCase());
-            dataPoke();
-
-        }
-        while (!miPoke)
-
-    } else if (selector === 2) {
-        do {
-            inPoke = prompt("Ingrese número de Pokémon");
-            miPoke = kanto.find(item => item.id === inPoke);
-            dataPoke();
-        }
-        while (!miPoke);
-
-    } else if (selector === 3) {
-        const body = document.body;
-        const tittle = document.createElement("h1");
-        tittle.textContent = "Referencia Pokedex"
-        body.appendChild(tittle);
-
-        for (const pokemon of kanto) {
-            let list = document.createElement("p");
-            list.textContent = JSON.stringify(pokemon.id + " " + pokemon.name)
-            body.appendChild(list);
-        }
-
-        reinicio();
-
-    } else {
-        alert("El dato no es válido");
-        init();
-    }
-}
 
 function dataPoke() {
+    let container = document.querySelector("#container");
 
     if (kanto.includes(miPoke)) {
-        const body = document.body;
+        const body = document.container;
         const description = document.createElement("p");
+        description.className = "info";
         description.innerHTML = miPoke.name + "<br>" + "El pokemón tipo" + " " + miPoke.type + ":" + " " + miPoke.desc + ".";
-        body.appendChild(description);
-        reinicio();
-
+        container.appendChild(description);
+        
     }
-    else {
-        miPoke = null;
-        pokeBusqueda();
-    }
+    reinicio();
 }
 
 function reinicio() {
-    const body = document.body;
+    const body = document.container;
     const boton = document.createElement("button")
+    boton.className = "reset";
     boton.innerHTML = "Reiniciar";
-    body.appendChild(boton);
+    container.appendChild(boton);
 
     boton.onclick = function () {
-        body.innerHTML = "";
+        const data = document.querySelector(".info");
+        data.remove();
+        boton.remove();
         init();
+    }
+}
+
+function init() {
+    let busqueda = document.querySelector("#buscar");
+    if (busqueda!=null) {
+        busqueda.addEventListener("search", () => {
+            miPoke = kanto.find(item => item.name.toLocaleUpperCase() === busqueda.value.toLocaleUpperCase());
+            dataPoke();
+        })
     }
 }
