@@ -1,7 +1,7 @@
 let miPoke;
 
 const kanto = [
-    { id: "1", name: "BULBASAUR", type: "Planta/Veneno", desc: "Este pokemon nace con una semilla en el lomo que crece con el paso del tiempo"},
+    { id: "1", name: "BULBASAUR", type: "Planta/Veneno", desc: "Este pokemon nace con una semilla en el lomo que crece con el paso del tiempo" },
     { id: "2", name: "IVYSAUR", type: "Planta/Veneno", desc: "Cuando le crece bastante el bulbo del lomo, pierde la capacidad de erguirse sobre las patas traseras" },
     { id: "3", name: "VENASAUR", type: "Planta/Veneno", desc: "La planta florece cuando absorbe energía solar, lo cual le obliga a buscar siempre la luz del sol" },
     { id: "4", name: "CHARMANDER", type: "Fuego", desc: "Prefiere las cosas calientes. Dicen que cuando llueve le sale vapor de la punta de la cola" },
@@ -18,6 +18,13 @@ const kanto = [
 
 
 init();
+const arrayJ = JSON.stringify(kanto);
+localStorage.setItem("save", arrayJ);
+
+let listKanto = localStorage.getItem("save");
+let list = JSON.parse(listKanto);
+
+console.log(list);
 
 
 function dataPoke() {
@@ -29,7 +36,6 @@ function dataPoke() {
         description.className = "info";
         description.innerHTML = miPoke.name + "<br>" + "El pokemón tipo" + " " + miPoke.type + ":" + " " + miPoke.desc + ".";
         container.appendChild(description);
-        
     }
     reinicio();
 }
@@ -51,7 +57,7 @@ function reinicio() {
 
 function init() {
     let busqueda = document.querySelector("#buscar");
-    if (busqueda!=null) {
+    if (busqueda != null) {
         busqueda.addEventListener("search", () => {
             miPoke = kanto.find(item => item.name.toLocaleUpperCase() === busqueda.value.toLocaleUpperCase());
             dataPoke();
