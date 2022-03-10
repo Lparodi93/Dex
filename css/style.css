@@ -13,7 +13,7 @@ body {
     padding: 20px;
 }
 
-#buscar {
+.buscar {
     width: 20%;
     border-radius: 5px;
     box-shadow: 2px 1px 20px 1px red;
@@ -38,27 +38,68 @@ body {
     font-family: 'Press Start 2P', cursive;
 }
 
-#tittle2 {
-    display: flex;
-    justify-content: center;
-}
-
-#tittle2 h2 {
-    color: yellow;
-    font-size: 20px;
-    font-family: 'Press Start 2P', cursive;
-}
-
-
-
 .pokeball {
     padding: 40px;
 }
 
-.info {
+.description {
     display: flex;
     justify-content: center;
     width: 20%;
     font-family: 'Press Start 2P', cursive;
     line-height: 2;
+}
+
+.tittleType{
+    font-family: 'Press Start 2P', cursive;
+}
+
+.textType {
+    display: flex;
+    justify-content: center;
+}
+
+.descriptionType{
+    display: flex;
+    justify-content: center;
+    font-family: 'Press Start 2P', cursive;
+    line-height: 2;
+}
+
+.press {
+    font-family: 'Press Start 2P', cursive;
+    border-radius: 10px;
+    padding: 7px;
+    margin: 5px;
+    color: rgb(32, 32, 32);
+}
+
+.btnAgua {
+    background-color: aquamarine;
+}
+
+.btnFuego {
+    background-color: red;
+}
+
+.btnPlanta {
+    background-color: greenyellow;
+}
+
+.btnBicho {
+    background-color: green;
+}
+
+.btnElectrico {
+    background-color: yellow;
+}
+
+.tittleType {
+    display: flex;
+    justify-content: center;
+}
+
+.noti {
+    font-family: 'Press Start 2P', cursive;
+    background: linear-gradient(to right, red, rgb(218, 130, 59));
 }

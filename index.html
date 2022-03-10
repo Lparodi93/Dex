@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Pokedex</title>
 </head>
 
@@ -17,19 +19,31 @@
         <h1>Pokedex</h1>
     </div>
 
-    <div id="tittle2">
-        <h2>By Parodi!</h2>
-    </div>
-
-
     <div id="container">
-        <input id="buscar" placeholder="Ingrese nombre de Pokémon" type="search" autocomplete="off">
+        <input class="buscar" placeholder="Ingrese nombre de Pokémon" type="search" autocomplete="off">
         <img class="pokeball" src="./img/Pokeball.png" width="300px" alt="">
+        <p class="description"></p>
     </div>
+
+    <h3 class="tittleType">Filtros por Tipo</h3>
+
+
+    <div class="textType">
+        
+        <button class="press btnAgua">Agua</button>
+        <button class="press btnFuego">Fuego</button>
+        <button class="press btnPlanta">Planta/Veneno</button>
+        <button class="press btnBicho">Bicho</button>
+        <button class="press btnElectrico">Electrico</button>
+        
+    </div>
+
+    <p class="descriptionType"></p>
 
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="main.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="poke.js"></script>
 </body>
 
 </html>
